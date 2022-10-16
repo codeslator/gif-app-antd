@@ -1,19 +1,31 @@
+import { FC, Fragment, useState } from 'react';
 import { Layout, Typography } from 'antd';
-import Brand from './views/components/Brand';
-import NavBar from './views/components/NavBar';
+import { AddCategory, Brand, GifGrid, NavBar } from './views/components';
 
 const { Header, Footer, Content } = Layout;
-const { Link } = Typography;
+const { Link, Title } = Typography;
 
-function GifApp() {
+interface GifAppProps {
+  defaultCategories: Array<string>;
+}
 
+const GifApp: FC<GifAppProps> = ({ defaultCategories = [] }) => {
+  const [categories, setCategories] = useState<Array<string>>(defaultCategories);
   return (
     <Layout className="layout">
       <Header className="layout-header">
         <Brand title="AntD GifApp" />
         <NavBar />
       </Header>
-      <Content className="layout-content"></Content>
+      <Content className="layout-content">
+      <Title className="text-center">AntD GifApp</Title>
+        <AddCategory categories={categories} setCategories={setCategories} />
+        {categories.map((category, index) => (
+          <Fragment key={index}>
+            <GifGrid category={category} />
+          </Fragment>
+        ))}
+      </Content>
       <Footer>
         <Link href="https://codeslator.dev" target="_blank">
           codeslator.dev
