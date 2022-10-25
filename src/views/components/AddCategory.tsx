@@ -4,15 +4,13 @@ import { Input, Col, Row } from 'antd';
 const { Search } = Input;
 
 interface AddCategoryProps {
-  categories: Array<string>;
-  setCategories: Dispatch<SetStateAction<Array<string>>>;
+  onAddCategory: (value: string) => void;
 }
 
-const AddCategory: FC<AddCategoryProps> = ({ categories, setCategories }) => {
+const AddCategory: FC<AddCategoryProps> = ({ onAddCategory }) => {
   const handleSearch = (value: string) => {
-    if(value !== '') {
-      setCategories((prev: string[]) => [...prev, value]);
-    };
+    if(value.trim().length <= 1) return;
+    onAddCategory(value.trim());
   };
 
   return (

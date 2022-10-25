@@ -1,6 +1,6 @@
 import { FC, Fragment, useState } from 'react';
 import { Layout, Typography } from 'antd';
-import { AddCategory, Brand, GifGrid, NavBar } from './views/components';
+import { AddCategory, Brand, GifGrid } from './views/components';
 
 const { Header, Footer, Content } = Layout;
 const { Link, Title } = Typography;
@@ -11,17 +11,23 @@ interface GifAppProps {
 
 const GifApp: FC<GifAppProps> = ({ defaultCategories = [] }) => {
   const [categories, setCategories] = useState<Array<string>>(defaultCategories);
+
+  const handleAddCategory = (newCategory: string) => {
+    if(categories.includes(newCategory)) return;
+    setCategories([newCategory, ...categories])
+  };
+
   return (
     <Layout className="layout">
       <Header className="layout-header">
         <Brand title="AntD GifApp" />
-        <NavBar />
+        {/* <NavBar /> */}
       </Header>
       <Content className="layout-content">
-      <Title className="text-center">AntD GifApp</Title>
-        <AddCategory categories={categories} setCategories={setCategories} />
-        {categories.map((category, index) => (
-          <Fragment key={index}>
+      <Title className="text-center">AntDesign GifApp</Title>
+        <AddCategory onAddCategory={handleAddCategory} />
+        {categories.map((category) => (
+          <Fragment key={category}>
             <GifGrid category={category} />
           </Fragment>
         ))}
