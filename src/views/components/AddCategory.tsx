@@ -1,30 +1,50 @@
-import { Dispatch, FC, SetStateAction } from 'react';
-import { Input, Col, Row } from 'antd';
+import { FC } from 'react';
+import { Input, Col, Row, Button } from 'antd';
+import { UndoOutlined } from '@ant-design/icons';
+
 
 const { Search } = Input;
 
 interface AddCategoryProps {
   onAddCategory: (value: string) => void;
+  onResetCategories: () => void;
 }
 
-const AddCategory: FC<AddCategoryProps> = ({ onAddCategory }) => {
+const AddCategory: FC<AddCategoryProps> = ({ onAddCategory, onResetCategories }) => {
+
   const handleSearch = (value: string) => {
     if(value.trim().length <= 1) return;
     onAddCategory(value.trim());
   };
 
   return (
-    <Row>
+    <Row justify="center">
       <Col
-        xs={24}
-        sm={24}
+        xs={4}
+        sm={4}
         md={{
-          span: 18,
-          offset: 3
+          span: 3,
+          push: 1
+        }}
+        lg={{
+          span: 3,
+          push: 1
+        }}
+      >
+        <Button size="large" type="primary" danger onClick={onResetCategories}>
+          <UndoOutlined />
+        </Button>
+      </Col>
+      <Col
+        xs={20}
+        sm={20}
+        md={{
+          span: 12,
+          pull: 1
         }}
         lg={{
           span: 12,
-          offset: 6,
+          pull: 1
         }}
       >
         <Search

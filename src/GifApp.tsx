@@ -17,6 +17,10 @@ const GifApp: FC<GifAppProps> = ({ defaultCategories = [] }) => {
     setCategories([newCategory, ...categories])
   };
 
+  const handleResetCategories = () => {
+    setCategories([]);
+  }
+
   return (
     <Layout className="layout">
       <Header className="layout-header">
@@ -25,7 +29,7 @@ const GifApp: FC<GifAppProps> = ({ defaultCategories = [] }) => {
       </Header>
       <Content className="layout-content">
       <Title className="text-center">AntDesign GifApp</Title>
-        <AddCategory onAddCategory={handleAddCategory} />
+        <AddCategory onAddCategory={handleAddCategory} onResetCategories={handleResetCategories} />
         {categories.map((category) => (
           <Fragment key={category}>
             <GifGrid category={category} />
