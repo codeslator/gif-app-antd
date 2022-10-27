@@ -3,7 +3,6 @@ import { Card } from 'antd';
 import { Gif } from '../../global';
 
 const { Meta } = Card;
-
 interface GifItemProps {
   gif: Gif;
 }

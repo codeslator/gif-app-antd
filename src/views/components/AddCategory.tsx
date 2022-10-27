@@ -17,6 +17,10 @@ const AddCategory: FC<AddCategoryProps> = ({ onAddCategory, onResetCategories })
     onAddCategory(value.trim());
   };
 
+  const handleReset = () => {
+    onResetCategories();
+  }
+
   return (
     <Row justify="center">
       <Col
@@ -31,7 +35,7 @@ const AddCategory: FC<AddCategoryProps> = ({ onAddCategory, onResetCategories })
           push: 1
         }}
       >
-        <Button size="large" type="primary" danger onClick={onResetCategories}>
+        <Button size="large" type="primary" danger onClick={handleReset}>
           <UndoOutlined />
         </Button>
       </Col>

@@ -25,7 +25,6 @@ const GifApp: FC<GifAppProps> = ({ defaultCategories = [] }) => {
     <Layout className="layout">
       <Header className="layout-header">
         <Brand title="AntD GifApp" />
-        {/* <NavBar /> */}
       </Header>
       <Content className="layout-content">
       <Title className="text-center">AntDesign GifApp</Title>
