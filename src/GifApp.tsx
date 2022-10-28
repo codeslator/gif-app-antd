@@ -6,7 +6,7 @@ const { Header, Footer, Content } = Layout;
 const { Link, Title } = Typography;
 
 interface GifAppProps {
-  defaultCategories: Array<string>;
+  defaultCategories?: Array<string>;
 }
 
 const GifApp: FC<GifAppProps> = ({ defaultCategories = [] }) => {

@@ -16,7 +16,7 @@ npm run dev
 - React 18 + Vite + TypeScript architecture
 - AntDesign to create UI
 - Custom layout
-- Resposive design
+- Responsive design
 - Axios to make HTPP requests
 - GiphyAPI
 - Custom hooks
