@@ -19,15 +19,18 @@ const AddCategory: FC<AddCategoryProps> = ({ onAddCategory, onResetCategories })
 
   const handleReset = () => {
     onResetCategories();
-  }
+  };
 
   return (
     <Row justify="center">
       <Col
         xs={4}
-        sm={4}
+        sm={{
+          span: 4,
+          push: 1
+        }}
         md={{
-          span: 3,
+          span: 4,
           push: 1
         }}
         lg={{
@@ -41,7 +44,10 @@ const AddCategory: FC<AddCategoryProps> = ({ onAddCategory, onResetCategories })
       </Col>
       <Col
         xs={20}
-        sm={20}
+        sm={{
+          span: 12,
+          pull: 1
+        }}
         md={{
           span: 12,
           pull: 1
