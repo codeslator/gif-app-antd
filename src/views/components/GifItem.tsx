@@ -10,7 +10,13 @@ interface GifItemProps {
 const GifItem: FC<GifItemProps> = ({ gif }) => {
   const { title, url } = gif;
   return (
-    <Card hoverable cover={<img alt={title} src={url} />}>
+    <Card
+      hoverable
+      cover={
+        <div className="cover">
+          <img alt={title} src={url} className="cover-img" />
+        </div>
+      }>
       <Meta title={title} />
     </Card>
   );

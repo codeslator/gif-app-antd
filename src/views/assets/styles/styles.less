@@ -31,10 +31,25 @@
   font-size: 20px;
 }
 
+
+.cover {
+  overflow: hidden;
+  height: 200px;
+
+  &-img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .brand-title {
     color: #fff;
     margin: 0 1rem;
     font-size: 14px;
+  }
+
+  .cover {
+    height: 120px;
   }
 }
