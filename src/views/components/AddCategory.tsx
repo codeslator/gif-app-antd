@@ -62,6 +62,7 @@ const AddCategory: FC<AddCategoryProps> = ({ onAddCategory, onResetCategories })
           onSearch={handleSearch}
           size="large"
           enterButton
+          allowClear
         />
       </Col>
     </Row>
